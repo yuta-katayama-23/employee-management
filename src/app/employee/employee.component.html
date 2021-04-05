@@ -25,22 +25,6 @@
     </div>
   </div>
   <div class="col-4">
-    <div *ngIf="selectedEmployee">
-      <h2>{{ selectedEmployee.firstName + " " + selectedEmployee.lastName}}</h2>
-      <div class="row g-3">
-        <div class="col-12">
-          <label class="form-label">社員番号</label>
-          <input type="text" class="form-control" value="{{ selectedEmployee.id }}">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">姓</label>
-          <input type="text" class="form-control" [(ngModel)]="selectedEmployee.firstName" placeholder="姓">
-        </div>
-        <div class="col-md-6">
-          <label class="form-label">名</label>
-          <input type="text" class="form-control" [(ngModel)]="selectedEmployee.lastName" placeholder="名">
-        </div>
-      </div>
-    </div>
+    <app-employee-detail [employee]="selectedEmployee"></app-employee-detail>
   </div>
 </div>
