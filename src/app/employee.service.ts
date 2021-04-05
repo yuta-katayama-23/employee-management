@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
-import { Employee } from './employee';
+import { Observable, of } from 'rxjs';
 import { EMPLOYEES } from './mock-employees';
+import { Employee } from './employee';
+import { MessageService } from './message.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EmployeeService {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
-  getEmployee(): Employee[] {
-    return EMPLOYEES;
+  getEmployee(): Observable<Employee[]> {
+    this.messageService.add('MemberService: 社員一覧データを取得しました。');
+    return of(EMPLOYEES);
   }
 }
