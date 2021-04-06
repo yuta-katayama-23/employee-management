@@ -1,0 +1,20 @@
+<div>
+  <h2>課一覧</h2>
+  <div class="list-group">
+    <button *ngFor="let division of divisions" type="button" class="list-group-item list-group-item-action">
+      {{ division }}
+    </button>
+  </div>
+</div>
+<div class="mt-3">
+  <h2>役員</h2>
+  <div class="container">
+    <div class="row row-cols-4">
+      <a *ngFor="let employee of employees" class="card hover" routerLink="/detail/{{ employee.id }}">
+        <div class="card-body">
+          <div class="col text-center">{{ employee.firstName + " " + employee.lastName }}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
