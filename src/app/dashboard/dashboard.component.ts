@@ -32,13 +32,9 @@ export class DashboardComponent implements OnInit {
   }
 
   getEmployees(): void {
-    this.employees = this.fetchEmpData().slice(1, 5);
-  }
-
-  private fetchEmpData(): Employee[] {
-    let fetchEmp = [];
     this.employeeService.getEmployees()
-      .subscribe(employees => fetchEmp = employees);
-    return fetchEmp;
+      .subscribe(employees => {
+        this.employees = employees.slice(1, 5);
+      });
   }
 }
