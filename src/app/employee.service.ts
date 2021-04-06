@@ -11,8 +11,13 @@ export class EmployeeService {
 
   constructor(private messageService: MessageService) { }
 
-  getEmployee(): Observable<Employee[]> {
+  getEmployees(): Observable<Employee[]> {
     this.messageService.add('MemberService: 社員一覧データを取得しました。');
     return of(EMPLOYEES);
+  }
+
+  getEmployee(id: string): Observable<Employee> {
+    this.messageService.add(`MemberService: 社員データ(id=${id})を取得しました`);
+    return of(EMPLOYEES.find(employee => employee.id.toString() === id));
   }
 }
