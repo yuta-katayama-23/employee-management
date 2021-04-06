@@ -1,24 +1,50 @@
-<h2>社員一覧</h2>
-<div class="row">
-  <div class="table-responsive">
-    <table class="table table-hover caption-top">
-      <caption>社員数</caption>
-      <thead>
-        <tr>
-          <th scope="col">社員番号</th>
-          <th scope="col">名前</th>
-          <th scope="col">部</th>
-          <th scope="col">課</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let employee of employees" (click)="onSelect(employee)">
-          <td scope="row">{{ employee.id }}</td>
-          <td>{{ employee.firstName + " " + employee.lastName}}</td>
-          <td>{{ employee.department }}</td>
-          <td>{{ employee.division }}</td>
-        </tr>
-      </tbody>
-    </table>
+<div class="bg-light">
+  <div class="p-3">
+    <h3>新規登録</h3>
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label for="search-name" class="col-sm-3 col-form-label">姓</label>
+        <input type="text" class="form-control" #employeeFirstName>
+      </div>
+      <div class="col-md-3">
+        <label for="search-name" class="col-sm-3 col-form-label">名</label>
+        <input type="text" class="form-control" #employeeLastName>
+      </div>
+      <div class="col-md-3">
+        <label for="search-name" class="col-sm-3 col-form-label">部</label>
+        <input type="text" class="form-control" #employeeDepartment>
+      </div>
+      <div class="col-md-3">
+        <label for="search-name" class="col-sm-3 col-form-label">課</label>
+        <input type="text" class="form-control" #employeeDivision>
+      </div>
+      <div class="col-md-3">
+        <button type="button" class="btn btn-primary" (click)="add(employeeFirstName.value, employeeLastName.value, employeeDepartment.value, employeeDivision.value);
+           clear(employeeFirstName, employeeLastName, employeeDepartment, employeeDivision);">保存</button>
+      </div>
+    </div>
   </div>
+</div>
+
+<div class=" table-responsive mt-3">
+  <h2>社員一覧</h2>
+  <table class="table table-hover caption-top">
+    <caption>社員数</caption>
+    <thead>
+      <tr>
+        <th scope="col">社員番号</th>
+        <th scope="col">名前</th>
+        <th scope="col">部</th>
+        <th scope="col">課</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees" (click)="onSelect(employee)">
+        <td scope="row">{{ employee.id }}</td>
+        <td>{{ employee.firstName + " " + employee.lastName}}</td>
+        <td>{{ employee.department }}</td>
+        <td>{{ employee.division }}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -45,6 +45,14 @@ export class EmployeeService {
       );
   }
 
+  addEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post(this.employeesUrl, employee, this.httpOptions)
+      .pipe(
+        tap((newEmployee: Employee) => this.log(`社員データ(id=${newEmployee.id})を追加しました。`)),
+        catchError(this.handleError<Employee>('addEmployee'))
+      );
+  }
+
   private log(message: string): void {
     this.messageService.add(`EmployeeService: ${message}`);
   }
@@ -56,6 +64,6 @@ export class EmployeeService {
       this.log(`${operation} failed: ${error.message}`);
 
       return of(result as T);
-    }
+    };
   }
 }

@@ -32,4 +32,20 @@ export class EmployeeComponent implements OnInit {
     this.employeeService.getEmployees().subscribe(employees => this.employees = employees);
   }
 
+  add(firstName: string, lastName: string, division: string, department: string): void {
+    if (!firstName && !lastName && !division && !department) { return; }
+    this.employeeService.addEmployee({ firstName, lastName, division, department } as Employee)
+      .subscribe(employee => {
+        this.employees.push(employee);
+      });
+
+  }
+
+  clear(firstName, lastName, department, division): void {
+    firstName.value = '';
+    lastName.value = '';
+    department.value = '';
+    division.value = '';
+  }
+
 }
