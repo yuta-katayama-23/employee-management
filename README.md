@@ -1,6 +1,24 @@
 # EmployeeManagement
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+- 社員管理アプリです
+- This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
+
+## Function
+
+### 今後実装する機能
+
+- 組織図から課を選択すると、その課に属する社員一覧が、一覧画面で閲覧できる
+- 社員を新規で追加する際には、既存の部・課がサジェストされる
+- 社員 ID も含めて新規登録でき、同じ社員 ID で登録しようとするとエラーになるバリデーションがある
+- 登録・編集・削除の際に成功した旨が通知される
+- 削除の際には、削除確認をするポップアップが表示され、それで OK にしたら削除される
+- DynamoDB へデータが保存される（DB は別のものにするのも OK）
+
+## アーキテクチャ
+
+- Node.js（Spring boot） による Server Side
+- Firebase による Auth マネジメント
+- EC2 上で Run
 
 ## Development server
 
