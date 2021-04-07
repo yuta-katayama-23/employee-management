@@ -34,6 +34,7 @@ export class EmployeeDetailComponent implements OnInit {
   }
 
   save(): void {
+    this.employee.name = `${this.employee.firstName} ${this.employee.lastName}`;
     this.employeeService.updateEmployee(this.employee)
       .subscribe(() => this.goBack());
   }

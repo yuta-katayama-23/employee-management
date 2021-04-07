@@ -36,6 +36,7 @@
         <th scope="col">名前</th>
         <th scope="col">部</th>
         <th scope="col">課</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -44,6 +45,7 @@
         <td>{{ employee.firstName + " " + employee.lastName}}</td>
         <td>{{ employee.department }}</td>
         <td>{{ employee.division }}</td>
+        <td><i (click)="delete(employee)" class="bi bi-x-square"></i></td>
       </tr>
     </tbody>
   </table>

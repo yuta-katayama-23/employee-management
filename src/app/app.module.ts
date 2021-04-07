@@ -11,6 +11,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmployeeSearchComponent } from './employee-search/employee-search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     EmployeeComponent,
     EmployeeDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    EmployeeSearchComponent
   ],
   imports: [
     BrowserModule,

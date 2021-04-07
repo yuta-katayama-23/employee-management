@@ -34,11 +34,11 @@ export class EmployeeComponent implements OnInit {
 
   add(firstName: string, lastName: string, division: string, department: string): void {
     if (!firstName && !lastName && !division && !department) { return; }
-    this.employeeService.addEmployee({ firstName, lastName, division, department } as Employee)
+    const name = `${firstName} ${lastName}`;
+    this.employeeService.addEmployee({ firstName, lastName, name, division, department } as Employee)
       .subscribe(employee => {
         this.employees.push(employee);
       });
-
   }
 
   clear(firstName, lastName, department, division): void {
@@ -46,6 +46,12 @@ export class EmployeeComponent implements OnInit {
     lastName.value = '';
     department.value = '';
     division.value = '';
+  }
+
+  delete(employee: Employee): void {
+    this.employees = this.employees.filter(emp => emp !== employee);
+    this.employeeService.deleteEmployee(employee)
+      .subscribe();
   }
 
 }

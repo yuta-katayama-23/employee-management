@@ -1,0 +1,12 @@
+<div class="bg-light mt-3">
+  <div class="p-3">
+    <h4>社員検索</h4>
+    <label for="search-name" class="form-label">名前</label>
+    <input type="text" class="form-control" #searchBox (input)="search(searchBox.value)">
+    <div class="card" *ngFor="let employee of employees$ | async">
+      <div class="card-body">
+        <a href="/detail/{{ employee.id }}">{{ employee.firstName + " " + employee.lastName }}</a>
+      </div>
+    </div>
+  </div>
+</div>
